@@ -1,0 +1,16 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+img
+{
+    width: 100%; 
+}
+.card img
+{
+    width: 143px;
+    height: 212px;
+    object-fit: cover;
+    object-position: center;
+}
