@@ -1,11 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap');
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css);
+
+:root
+{
+    --mainFont: 'Mulish';
+}
+
 *
 {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 img
 {
     width: 100%; 
+}
+.header__title__container
+{
+    display: flex;
+    padding-left: 144px;
+    align-items: center;
+    height: 60px;
+}
+.header__title__container h1
+{
+    font-family: 'Merriweather',sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    color: #110E47;
+}
+/* Dark mode index start */
+.checkbox-div__index
+{
+	align-self: center;
+    margin-left: 83px;
+}
+.checkbox__index {
+	opacity: 0;
+	position: absolute;
+}
+
+.label__index {
+	background-color: #AAA9B1;
+	border-radius: 50px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 2px;
+	position: relative;
+	height: 13px;
+	width: 24px;
+	transform: scale(1.5);
+}
+
+.label__index .ball__index {
+	background-color: white;
+	border-radius: 50%;
+	position: absolute;
+	top: 1.5px;
+	left: 2px;
+	height: 10px;
+	width: 10px;
+	transform: translateX(0px);
+	transition: transform 0.2s linear;
+}
+
+.checkbox__index:checked + .label__index .ball__index {
+	transform: translateX(9px);
+}
+
+/* Dark mode index slut */
+.cards__column
+{
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+}
+.nowShowing__container
+{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 24px;
+
+}
+.nowShowing__container h2
+{
+    font-family: 'Merriweather';
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    color: #110E47;
+}
+.nowShowing__container button
+{
+    display: flex;
+    flex-direction: row;
+    padding: 3px 8px;
+    width: 61px;
+    height: 21px;
+    border: 2px solid #E5E4EA;
+    border-radius: 100px;
+    width: 65px;
+    height: 25px;
+    background-color: transparent;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #AAA9B1;
+}
+.all__cards
+{
+    display: flex;
+    gap: 16px;
+    overflow-y: scroll;
+    padding-left: 24px;
+    margin-top: 16px;
+}
+.all__cards::-webkit-scrollbar
+{
+    display: none;
 }
 .card img
 {
@@ -13,4 +135,362 @@ img
     height: 212px;
     object-fit: cover;
     object-position: center;
+    box-shadow: 0 0 10px 5px  #9c9c9c61;
 }
+.card__title
+{
+    font-family: var(--mainFont),sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.02em;
+    color: black;
+    margin: 12px 0 8px 0;
+}
+.nowPlaying__card__rating__container
+{
+    display: flex;
+    gap: 4px;
+    font-size: 12px;
+}
+.nowPlaying__card__rating__container i
+{
+    color: #FFC319;
+}
+.nowPlaying__card__rating__container p
+{
+    font-family: var(--mainFont),sans-serif;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0.02em;
+    color: #9C9C9C;
+}
+.pMovies__container
+{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 327px;
+    height: 292px;
+    overflow-y: scroll;
+    margin: 0 auto;
+    margin-top: 24px;
+}
+.pop__container
+{
+    display: flex;
+    justify-content: space-between;
+}
+.pop__container h3
+{
+    font-family: 'Merriweather';
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    color: #110E47;
+}
+.pop__container button
+{
+    display: flex;
+    flex-direction: row;
+    padding: 3px 8px;
+    width: 61px;
+    height: 21px;
+    border: 2px solid #E5E4EA;
+    border-radius: 100px;
+    width: 65px;
+    height: 25px;
+    background-color: transparent;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #AAA9B1;
+}
+.pMovies__container::-webkit-scrollbar
+{
+    display: none;
+}
+.Pcard
+{
+    display: flex;
+    width: 304px;
+    height: 120px;
+}
+.Pcard img
+{
+    height: 120px;
+    width: 85px;
+    object-fit: cover;
+    object-position: center;
+}
+.PNowPlaying__card__rating__container
+{
+    display: flex;
+}
+
+
+/* Detail start */
+.hero__container
+{
+   position: relative;
+   z-index: 100;
+   height: 12.5em;
+}
+.darkMode__container
+{
+    position: absolute;
+}
+.detail__container
+{
+    position: relative;
+    z-index: 10000;
+    border-radius: 15px 15px 0px 0px;
+}
+.movie__container
+{
+    display: flex;
+}
+.movie__title
+{
+    width: 198px;
+    font-family: var(--mainFont),sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 25px;
+    letter-spacing: 0.02em;
+    margin: 24px 105px 0 24px;
+}
+.movie__container i
+{
+    font-size: 18px;
+    margin-top: 27px;
+}
+.card__rating__container
+{
+    display: flex;
+    margin: 8px 0 0 24px;
+    font-size: 12px;
+}
+.card__rating__container i
+{
+    color: #FFC319;
+    margin-right: 4px;
+}
+.card__rating__container p
+{
+    font-family: var(--mainFont),sans-serif;
+    font-weight: 400;
+    line-height: 15px;
+    letter-spacing: 0.02em;
+    color: #9C9C9C;
+}
+.card__genreContainer
+{
+    display: flex;
+    gap: 8px;
+    margin: 16px 0 0 24px ;
+}
+.genre
+{
+    background: #DBE3FF;
+    border-radius: 100px;
+    color: #88A4E8;
+    letter-spacing: 0.02em;
+    font-family: var(--mainFont),sans-serif;
+    font-weight: 700;
+    font-size: 8px;
+    line-height: 10px;
+    text-align: center;
+    padding: 4px 12px ;
+    
+}
+.card__infoContainer
+{
+    display: flex;
+    margin: 16px 0 0 24px;
+}
+.card__infoColumn
+{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 109px;
+    height: 34px;
+    
+}
+.card__infoColumn p:nth-child(1)
+{
+    font-family: var(--mainFont),sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.02em;
+    color: #9C9C9C;
+}
+.card__infoColumn p:nth-child(2)
+{
+    font-family: var(--mainFont),sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.02em;
+    
+}
+.decription__container
+{
+    margin: 24px 0 0 24px;
+}
+.description
+{
+    font-family: 'Merriweather';
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+}
+.description__text
+{
+    font-family: 'Mulish';
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 22px;
+    letter-spacing: 0.02em;
+    color: #9C9C9C;
+    width: 327px;
+}
+.all__cast__img__container
+{
+    display: flex;
+    gap: 13px;
+}
+.cast__container
+{
+    width: 327px;
+    height: 147px;
+    margin: 0 auto;
+    margin-top: 16px;
+}
+.cast__seeMoreContainer
+{
+    display: flex;
+    justify-content: space-between;
+}
+.cast__seeMoreContainer button
+{
+    display: flex;
+    flex-direction: row;
+    padding: 3px 8px;
+    width: 61px;
+    height: 21px;
+    border: 2px solid #E5E4EA;
+    border-radius: 100px;
+    width: 65px;
+    height: 25px;
+    background-color: transparent;
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: #AAA9B1;
+}
+.cast
+{
+    font-family: 'Merriweather';
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    margin-bottom: 16px;
+}
+.cast__img__container
+{
+    width: 72px;
+    height: 110px;
+}
+.cast__img__container figcaption
+{
+    font-family: var(--mainFont),sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: 0.02em;
+    width: 73px;
+}
+.cast__img
+{
+    width: 72px;
+    height: 72px;
+    border-radius: 5%;
+    object-fit: cover;
+    object-position: 100% 30%;
+}
+
+/* Dark mode start */
+.darkMode__container
+{
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding-left: 24px;
+    padding-right: 19px;
+}
+.darkMode__container i
+{
+    color: white;
+}
+.checkbox-div
+{
+	align-self: center;
+    padding-left: 17.5em;
+}
+.checkbox 
+{
+	opacity: 0;
+	position: absolute;
+}
+
+.label {
+	background-color: #AAA9B1;
+	border-radius: 50px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 2px;
+	position: relative;
+	height: 13px;
+	width: 24px;
+	transform: scale(1.5);
+}
+
+.label .ball {
+	border-radius: 50%;
+	position: absolute;
+	top: 1.5px;
+	left: 2px;
+	height: 10px;
+	width: 10px;
+	transform: translateX(0px);
+	transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+	transform: translateX(9px);
+}
+
+/* Dark mode slut */
+
+/* Detail slut */
+
+
+
+
+
+

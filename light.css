@@ -1,0 +1,31 @@
+:root
+{
+    --textColor: black;
+    --bookMark: black; 
+    --DescriptionCastText: #110E47;
+    --darkModeBall: white;
+    --background: white;
+}
+
+
+.movie__title, .card__infoColumn p:nth-child(2)
+{
+    color: var(--textColor);
+}
+
+.description, .cast, .cast__img__container figcaption
+{
+    color: var(--DescriptionCastText);
+}
+.label .ball
+{
+    background-color: var(--darkModeBall);
+}
+.detail__container, body 
+{
+    background-color: var(--background);
+}
+.fa-bookmark
+{
+    color: var(--bookMark);
+}
