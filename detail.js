@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=6c6e28dc244ab843223b5dd51082dc14`)
     .then(movies => movies.json())
     .then(movie => {
-            console.log(movie)
 
             let section = document.createElement("section")
             body.append(section)
@@ -33,6 +32,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
             section.append(div)
 
+
+            function time_convert(num)
+            { 
+            var hours = Math.floor(num / 60);  
+            var minutes = num % 60;
+            return hours + "h" + " " + minutes + "min";            
+            }
+
+            
+
+
             let article = document.createElement("article")
             article.classList.add("detail__container")
             article.innerHTML = `
@@ -43,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <div class="card__rating__container">
             <i class="fa-solid fa-star"></i>
-            <p class="card__rating">${movie.vote_average}/10 IMDb</p>
+            <p class="card__rating">${movie.vote_average.toFixed(1)}/10 IMDb</p>
             </div>
 
             <div class="card__genreContainer">
@@ -52,8 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="card__infoContainer">
 
             <div class="card__infoColumn">
-                <p class="card__infoLenght">Lenght</p>
-                <p class="card__infoRuntime">${movie.runtime}min </p>
+                <p class="card__infoLength">Length</p>
+                <p class="card__infoRuntime">${time_convert(movie.runtime)}</p>
             </div> 
 
             <div class="card__infoColumn">
@@ -120,13 +130,11 @@ document.addEventListener("DOMContentLoaded", () => {
         .then(actors => actors.json())
         .then(actor => {
     
-            console.log(actor)
 
             let actorsImg = document.querySelector(".all__cast__img__container")
 
             const actorShort = actor.cast.slice(0,4)
 
-            console.log(actorShort)
 
             actorShort.forEach((actor) => {
 
