@@ -30,7 +30,6 @@ img
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.02em;
-    color: #110E47;
 }
 /* Dark mode index start */
 .checkbox-div__index
@@ -44,7 +43,6 @@ img
 }
 
 .label__index {
-	background-color: #AAA9B1;
 	border-radius: 50px;
 	cursor: pointer;
 	display: flex;
@@ -58,7 +56,6 @@ img
 }
 
 .label__index .ball__index {
-	background-color: white;
 	border-radius: 50%;
 	position: absolute;
 	top: 1.5px;
@@ -94,7 +91,6 @@ img
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.02em;
-    color: #110E47;
 }
 .nowShowing__container button
 {
@@ -134,7 +130,6 @@ img
     height: 212px;
     object-fit: cover;
     object-position: center;
-    box-shadow: 0 0 10px 5px  #9c9c9c61;
 }
 .card__title
 {
@@ -143,7 +138,6 @@ img
     font-size: 14px;
     line-height: 18px;
     letter-spacing: 0.02em;
-    color: black;
     margin: 12px 0 8px 0;
 }
 .nowPlaying__card__rating__container
@@ -192,7 +186,6 @@ img
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 0.02em;
-    color: #110E47;
 }
 .pop__container button
 {
@@ -255,7 +248,6 @@ img
     font-size: 14px;
     line-height: 18px;
     letter-spacing: 0.02em;
-    color: black;
 }
 .pCard__rating
 {
@@ -299,7 +291,6 @@ img
     font-size: 12px;
     line-height: 15px;
     letter-spacing: 0.02em;
-    color: black;
 }
 .pCard__time__container i
 {
@@ -556,7 +547,6 @@ footer
 }
 
 .label {
-	background-color: #AAA9B1;
 	border-radius: 50px;
 	cursor: pointer;
 	display: flex;
