@@ -4,22 +4,23 @@ document.addEventListener("DOMContentLoaded", () => {
     let id = params.get("id")
     let body = document.querySelector("body")
 
-
     
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=6c6e28dc244ab843223b5dd51082dc14`)
     .then(movies => movies.json())
     .then(movie => {
 
+        
             let section = document.createElement("section")
             body.append(section)
 
             let div = document.createElement("div")
             div.classList.add("hero__container")
             div.innerHTML = `
+            <div class="remove__heroCon">
             <div class="darkMode__container">
             <i class="fa-solid fa-arrow-left" onclick="window.location.href='index.html'"></i>
             <div class="checkbox-div">
-                <input type="checkbox" class="checkbox"  id="chk" onclick="switchTheme()" />
+                <input type="checkbox" class="checkbox"  id="chk"/>
                 <label class="label" for="chk">
                     <div class="ball"></div>
                 </label>
@@ -28,9 +29,91 @@ document.addEventListener("DOMContentLoaded", () => {
             <figure>
             <img src="https://image.tmdb.org/t/p/original${movie.backdrop_path}" alt="">    
             </figure>
+            </div>
             `
-
             section.append(div)
+
+
+            let heroCon = document.querySelector(".remove__heroCon")
+            let playDiv = document.createElement("div")
+            playDiv.classList.add("play__div")
+            playDiv.innerHTML = `
+            <i class="fa-solid fa-circle-play"></i>
+            <p>Play trailer</p>
+            `
+            section.append(playDiv)
+
+
+            playDiv.addEventListener('click', () => {
+                
+                heroCon.classList.add("display__none")
+                playDiv.classList.remove("play__div")
+                playDiv.classList.add("display__none")
+
+            })
+            
+            fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=6c6e28dc244ab843223b5dd51082dc14&language=en-US`)
+            .then(trailers => trailers.json())
+            .then(trailer => {
+
+
+
+                trailer.results.forEach(trailer => {
+                    console.log(trailer.key)
+
+
+                    let iframeContainer = document.createElement("div")
+                    iframeContainer.classList.add("iframe__container")
+                    iframeContainer.innerHTML = `
+                    <iframe width="450" height="300"
+                    src="https://www.youtube.com/embed/SUXWAEX2jlg">
+                    </iframe>
+                    `
+                    div.append(iframeContainer)
+                })
+
+
+            })
+
+
+
+
+
+            
+            let btn = document.querySelector("#chk")
+
+
+            btn.addEventListener('click', (event) => {
+                            
+                if(event.target.checked)
+                {
+                    setActiveStyleSheet("dark")
+                     localStorage.setItem("checked", true)
+
+                }
+                else{
+                    setActiveStyleSheet("light")
+                     localStorage.setItem("checked", false)
+                }
+            })
+            
+            
+
+            
+                let checkbox = document.querySelector(".checkbox")
+            
+                // henter et string fra din localStorage
+                let checkedValue = localStorage.getItem("checked")
+                // du laver dit string om til en boolean
+                let CheckedValue = checkedValue === 'true'   
+            
+                if(CheckedValue == true) checkbox.checked = true
+
+                
+                console.log(checkedValue)
+                
+            
+            
 
 
             function time_convert(num)

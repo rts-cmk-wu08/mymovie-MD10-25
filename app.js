@@ -3,26 +3,66 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
    
+    let header = document.createElement("header")
+    header.innerHTML =`
+    <div class="header__title__container">
+    <h1>MyMovies</h1>
+
+    <div class="checkbox-div__index">
+        <input type="checkbox" class="checkbox__index"  id="chk"/>
+        <label class="label__index" for="chk">
+            <div class="ball__index"></div>
+        </label>
+    </div>
+    </div>
+
+    ` 
+    body.append(header)
+
+
+    let btn = document.querySelector("#chk")
+
+btn.addEventListener('click', (event) => {
+
+
+    if(event.target.checked)
+    {
+        setActiveStyleSheet("dark")
+        localStorage.setItem("checked", true)
+    }
+    else{
+        setActiveStyleSheet("light")
+        localStorage.setItem("checked", false)
+    }
+})
+
+window.addEventListener('DOMContentLoaded', () => {
+    let checkbox = document.querySelector(".checkbox__index")
+
+    // henter et string fra din localStorage
+    let checkedValue = localStorage.getItem("checked")
+    // du laver dit string om til en boolean
+    let CheckedValue = checkedValue === 'true'   
+
+    if(CheckedValue == true) checkbox.checked = true
+
+    
+})
+
+
+
+
+
+
+
+
+
+
     
     fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=6c6e28dc244ab843223b5dd51082dc14&language=en-US&page=1")
         .then(movies => movies.json())
         .then(movie => {
-            let header = document.createElement("header")
-            header.innerHTML =`
-            <div class="header__title__container">
-            <h1>MyMovies</h1>
 
-            <div class="checkbox-div__index">
-                <input type="checkbox" class="checkbox__index"  id="chk" onclick="switchTheme()" />
-                <label class="label__index" for="chk">
-                    <div class="ball__index"></div>
-                </label>
-            </div>
-            </div>
-
-            ` 
-
-            body.append(header)
 
             let section = document.createElement("section")
             section.classList.add("cards__column")
