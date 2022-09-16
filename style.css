@@ -5,7 +5,6 @@
 {
     --mainFont: 'Mulish';
 }
-
 *
 {
     margin: 0;
@@ -346,14 +345,10 @@ footer
     z-index: 10000;
     border-radius: 15px 15px 0px 0px;
 }
-
 .display__none
 {
     display: none;
 }
-
-
-
 .play__div
 {
     position: absolute;

@@ -44,36 +44,46 @@ document.addEventListener("DOMContentLoaded", () => {
             section.append(playDiv)
 
 
-            playDiv.addEventListener('click', () => {
-                
-                heroCon.classList.add("display__none")
-                playDiv.classList.remove("play__div")
-                playDiv.classList.add("display__none")
-
-            })
+       
             
             fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=6c6e28dc244ab843223b5dd51082dc14&language=en-US`)
             .then(trailers => trailers.json())
             .then(trailer => {
 
+                console.log(trailer.results)
 
+                let test = trailer.results.find(element => element.type.toLowerCase() === "Trailer".toLowerCase()).key
 
-                trailer.results.forEach(trailer => {
-                    console.log(trailer.key)
+                console.log(test)
 
+            
+                    console.log(trailer)
 
                     let iframeContainer = document.createElement("div")
                     iframeContainer.classList.add("iframe__container")
                     iframeContainer.innerHTML = `
-                    <iframe width="450" height="300"
-                    src="https://www.youtube.com/embed/SUXWAEX2jlg">
-                    </iframe>
+                  
+
+                    <iframe class="trailer__iframe display__none" width="100%" height="200" src="https://www.youtube.com/embed/${test}?controls=0" 
+                    title="YouTube video player" frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     `
+
                     div.append(iframeContainer)
-                })
+               
 
-
+                    let trailerIframe = document.querySelector(".trailer__iframe")
+                    
+                    playDiv.addEventListener('click', () => {
+                        
+                        heroCon.classList.add("display__none")
+                        playDiv.classList.remove("play__div")
+                        playDiv.classList.add("display__none")
+                        trailerIframe.classList.remove("display__none")
+                    })
+                
             })
+
 
 
 
@@ -243,7 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
+      
         
     
 })
