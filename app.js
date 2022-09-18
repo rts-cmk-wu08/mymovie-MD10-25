@@ -62,6 +62,7 @@ window.addEventListener('DOMContentLoaded', () => {
     fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=6c6e28dc244ab843223b5dd51082dc14&language=en-US&page=1")
         .then(movies => movies.json())
         .then(movie => {
+            
 
 
             let section = document.createElement("section")
