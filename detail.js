@@ -4,8 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let id = params.get("id")
     let body = document.querySelector("body")
 
+    const apiKey = "6c6e28dc244ab843223b5dd51082dc14"
+
     
-    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=6c6e28dc244ab843223b5dd51082dc14`)
+    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${apiKey}`)
     .then(movies => movies.json())
     .then(movie => {
 
@@ -26,8 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 </label>
             </div>
             </div>
-            <figure>
-            <img src="https://image.tmdb.org/t/p/original${movie.backdrop_path}" alt="">    
+            <figure class="hero__img__container">
+            <img src="https://image.tmdb.org/t/p/original${movie.poster_path}" alt="" class="hero__img">    
             </figure>
             </div>
             `
@@ -46,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
        
             
-            fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=6c6e28dc244ab843223b5dd51082dc14&language=en-US`)
+            fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${apiKey}&language=en-US`)
             .then(trailers => trailers.json())
             .then(trailer => {
 
@@ -64,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     iframeContainer.innerHTML = `
                   
 
-                    <iframe class="trailer__iframe display__none" width="100%" height="200" src="https://www.youtube.com/embed/${test}?controls=0" 
+                    <iframe class="trailer__iframe display__none" width="100%" height="200" src="https://www.youtube.com/embed/${test}" 
                     title="YouTube video player" frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     `
@@ -74,13 +76,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     let trailerIframe = document.querySelector(".trailer__iframe")
                     
+                    
+                    let closeTrailerContainer = document.createElement("div")
+                    closeTrailerContainer.classList.add("close__trailer__container")
+                    closeTrailerContainer.classList.add("display__none")
+                    closeTrailerContainer.innerHTML = `
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <p>Close trailer</p>
+                    `
+                    div.append(closeTrailerContainer)
+                    
+                    
                     playDiv.addEventListener('click', () => {
                         
                         heroCon.classList.add("display__none")
                         playDiv.classList.remove("play__div")
                         playDiv.classList.add("display__none")
                         trailerIframe.classList.remove("display__none")
+                        closeTrailerContainer.classList.remove("display__none")
                     })
+
+                    closeTrailerContainer.addEventListener('click', () => {
+                        heroCon.classList.remove("display__none")
+                        playDiv.classList.add("play__div")
+                        playDiv.classList.remove("display__none")
+                        trailerIframe.classList.add("display__none")
+                        closeTrailerContainer.classList.add("display__none")
+                    })
+
                 
             })
 
@@ -219,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
             
             })
 
-            fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=6c6e28dc244ab843223b5dd51082dc14&language=en-US`)
+            fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${apiKey}&language=en-US`)
         .then(actors => actors.json())
         .then(actor => {
     

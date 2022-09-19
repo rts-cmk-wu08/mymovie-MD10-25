@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
     let body = document.querySelector("body")
 
+    const apiKey = "6c6e28dc244ab843223b5dd51082dc14"
+
+
 
    
     let header = document.createElement("header")
@@ -59,7 +62,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
     
-    fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=6c6e28dc244ab843223b5dd51082dc14&language=en-US&page=1")
+    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${apiKey}&language=en-US&page=1`)
         .then(movies => movies.json())
         .then(movie => {
             
@@ -73,7 +76,7 @@ window.addEventListener('DOMContentLoaded', () => {
             let h2Div = document.createElement("div")
             h2Div.classList.add("nowShowing__container")
             h2Div.innerHTML = `
-            <h2>Now Playing</h2>
+            <h2>Now Showing</h2>
             <button>See more</button>
             `
 
@@ -89,7 +92,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 let div = document.createElement("div")
                 div.classList.add("card")
                 div.innerHTML = `
-                <img src="https://image.tmdb.org/t/p/original${movies.backdrop_path}" alt="${movies.original_title}"
+                <img src="https://image.tmdb.org/t/p/original${movies.poster_path}" alt="${movies.original_title}"
                 onclick="window.location.href='detail.html?id=${movies.id}';">
                 <p class="card__title">${movies.title}</p>
                 <div class="nowPlaying__card__rating__container"> 
@@ -104,7 +107,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
-        fetch("https://api.themoviedb.org/3/movie/popular?api_key=6c6e28dc244ab843223b5dd51082dc14&language=en-US&page=1")
+        fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`)
         .then(pMovies => pMovies.json())
         .then(pMovie => {
 
@@ -129,7 +132,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             pMovie.results.forEach(pMovies => {
 
-                fetch(`https://api.themoviedb.org/3/movie/${pMovies.id}?api_key=6c6e28dc244ab843223b5dd51082dc14`)
+                fetch(`https://api.themoviedb.org/3/movie/${pMovies.id}?api_key=${apiKey}`)
                 .then(pmovies => pmovies.json())
                 .then(pmovie => {
 
@@ -166,7 +169,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 let pDiv = document.createElement("div")
                 pDiv.classList.add("Pcard")
                 pDiv.innerHTML = `
-                <img src="https://image.tmdb.org/t/p/original${pMovies.backdrop_path}" alt="${pMovies.original_title}"
+                <img src="https://image.tmdb.org/t/p/original${pMovies.poster_path}" alt="${pMovies.original_title}"
                 onclick="window.location.href='detail.html?id=${pMovies.id}';">
                 <div class="pCard__info__container">
                 <p class="pCard__title">${pMovies.title}</p>
