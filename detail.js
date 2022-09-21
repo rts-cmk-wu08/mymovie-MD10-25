@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 let test = trailer.results.find(element => element.type.toLowerCase() === "Trailer".toLowerCase()).key
 
-                console.log(test)
+                
 
             
                     console.log(trailer)
@@ -257,8 +257,9 @@ document.addEventListener("DOMContentLoaded", () => {
             let cast = document.createElement("figure")
             cast.classList.add("cast__img__container")
             cast.innerHTML = `
-                    <img src="https://image.tmdb.org/t/p/original${actor.profile_path}" alt="${actor.name}" class="cast__img">
-                    <figcaption>${actor.name}</figcaption>
+                    <img src="https://image.tmdb.org/t/p/original${actor.profile_path}" alt="${actor.name}" class="cast__img"
+                    onclick="window.location.href='https://en.wikipedia.org/wiki/${actor.name}';">
+                    <figcaption onclick="window.location.href='https://en.wikipedia.org/wiki/${actor.name} ';">${actor.name}</figcaption>
 
 
             `

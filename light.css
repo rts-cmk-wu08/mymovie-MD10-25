@@ -8,7 +8,7 @@
     --background: white;
     --darkModeContainer: #AAA9B1; 
     --nowPlayingShadow: 0 0 10px 5px  #9c9c9c61;
-
+    --scrollBarNowShowing: black;
 }
 
 
@@ -57,4 +57,8 @@ footer
 .card img
 {
     box-shadow: var(--nowPlayingShadow);
+}
+.all__cards::-webkit-scrollbar-thumb 
+{
+    background-color: var(--scrollBarNowShowing);
 }

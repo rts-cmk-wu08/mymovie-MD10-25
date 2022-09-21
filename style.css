@@ -10,17 +10,24 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 img
 {
     width: 100%; 
 }
+header
+{
+    width: 100%;
+}
 .header__title__container
 {
     display: flex;
-    padding-left: 144px;
+    justify-content: space-between;
     align-items: center;
     height: 60px;
+    width: 90%;
+    padding-left: 40%;
 }
 .header__title__container h1
 {
@@ -67,22 +74,6 @@ img
 	transform: translateX(0px);
 	transition: transform 0.2s linear;
 }
-.close__trailer__container
-{
-    color: white;
-    position: absolute;
-    top: 6.7rem;
-    left: 0.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: medium;
-}
-.close__trailer__container p
-{
-    font-family: var(--mainFont),sans-serif;
-    font-size: 12px;
-}
 
 
 
@@ -91,6 +82,7 @@ img
 }
 
 /* Dark mode index slut */
+
 .cards__column
 {
     display: flex;
@@ -143,6 +135,10 @@ img
 .all__cards::-webkit-scrollbar
 {
     display: none;
+}
+.card
+{
+    margin-bottom: 1rem;
 }
 .card img
 {
@@ -347,6 +343,23 @@ footer
 
 
 /* Detail start */
+.close__trailer__container
+{
+    color: white;
+    position: absolute;
+    top: 6.7rem;
+    left: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: medium;
+}
+.close__trailer__container p
+{
+    font-family: var(--mainFont),sans-serif;
+    font-size: 12px;
+}
+
 .hero__container
 {
    position: relative;
@@ -613,7 +626,7 @@ iframe
 .checkbox-div
 {
 	align-self: center;
-    padding-left: 17.5em;
+    padding-left: 18em;
 }
 .checkbox 
 {
@@ -655,6 +668,46 @@ iframe
 
 
 
+
+@media screen and (min-width: 600px) {
+
+    .header__title__container
+    {
+        padding-left: 45%;
+    }
+    .header__title__container h1
+    {
+        font-size: x-large;
+    }
+    .all__cards
+    {
+        transition: all 0.2s;
+        transform: scale(0.98);
+        will-change: transform;
+        user-select: none;
+        cursor: pointer;
+    }
+    .all__cards.active
+    {
+        cursor: grabbing;
+        cursor: -webkit-grabbing;
+        transform: scale(1);
+    }
+    .all__cards::-webkit-scrollbar
+    {
+        -webkit-appearance: none;
+        height: 10px;
+        display: block;
+    }
+    .all__cards::-webkit-scrollbar-thumb 
+    {
+        border-radius: 10px;
+    }
+    .all__cards::-webkit-scrollbar-corner
+    {
+        display: none;
+    }
+  }
 
 
 
