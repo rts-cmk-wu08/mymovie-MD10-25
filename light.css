@@ -50,7 +50,8 @@ footer
 {
     color: var(--bookMark);
 }
-.footer__icons
+.footer__icons,
+.footer__icons a
 {
     color: var(--footerIcons);
 }
