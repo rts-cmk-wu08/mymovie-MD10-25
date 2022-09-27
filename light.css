@@ -1,0 +1,65 @@
+:root
+{
+    --textColor: black;
+    --bookMark: black;
+    --footerIcons: black;
+    --DescriptionCastText: #110E47;
+    --darkModeBall: white;
+    --background: white;
+    --darkModeContainer: #AAA9B1; 
+    --nowPlayingShadow: 0 0 10px 5px  #9c9c9c61;
+    --scrollBarNowShowing: black;
+}
+
+
+
+.movie__title, 
+.card__infoColumn p:nth-child(2), 
+.card__title,
+.pCard__info__container,
+.pCard__time__container p
+{
+    color: var(--textColor);
+}
+.description, 
+.cast, 
+.cast__img__container figcaption, 
+.header__title__container h1, 
+.nowShowing__container h2,
+.pop__container h3
+{
+    color: var(--DescriptionCastText);
+}
+.label .ball, 
+.label__index .ball__index
+{
+    background-color: var(--darkModeBall);
+}
+.label, 
+.label__index
+{
+    background-color: var(--darkModeContainer);
+}
+.detail__container, 
+body,
+footer
+{
+    background-color: var(--background);
+}
+.fa-bookmark
+{
+    color: var(--bookMark);
+}
+.footer__icons,
+.footer__icons a
+{
+    color: var(--footerIcons);
+}
+.card img
+{
+    box-shadow: var(--nowPlayingShadow);
+}
+.all__cards::-webkit-scrollbar-thumb 
+{
+    background-color: var(--scrollBarNowShowing);
+}
